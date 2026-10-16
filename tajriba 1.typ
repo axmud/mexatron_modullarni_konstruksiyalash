@@ -13,6 +13,21 @@
   paper: "a4",
   margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 2cm),
 )
+// ===== HOSHIYA =====
+#let info = json("fan.json")
+#let raqam = 1  // amaliyot raqami
+#set document(keywords: (info.fan,))
+#set page(header: context {
+  set text(size: 9pt, fill: luma(110))
+  grid(
+    columns: (1fr, auto, 1fr),
+    align: (left, center, right),
+    info.fan, info.semestr, [Tajriba №#raqam],
+  )
+  v(-0.5em)
+  line(length: 100%, stroke: 0.4pt + luma(170))
+})
+// ===================
 #set text(size: 12pt, lang: "uz")
 #set par(justify: true, leading: 0.65em)
 #set heading(numbering: "1.1")
@@ -170,6 +185,7 @@ bunda $K$ --- LVDT datchigining sezgirlik koeffitsienti, $phi$ --- faza siljishi
     })
   },
   caption: [LVDT datchigining konstruktiv sxemasi va ikkilamchi gʻaltaklarda kuchlanish hosil boʻlishi],
+  placement: auto,
 ) <fig-lvdt>
 
 == Optik inkremental enkoder va kvadratur signal
@@ -502,6 +518,7 @@ $ macron(x) = 1 / n sum_(i=1)^n x_i, quad quad sigma = sqrt(1 / (n - 1) sum_(i=1
     )
   },
   caption: [Mexatronik modul val diametrini takroriy oʻlchash statistikasi ($x_"haq" = 20.000 "mm"$)],
+  placement: auto,
 ) <tab-stat>
 
 = Hisoblash formulalari va misol hisobi
@@ -509,7 +526,7 @@ $ macron(x) = 1 / n sum_(i=1)^n x_i, quad quad sigma = sqrt(1 / (n - 1) sum_(i=1
 *1. LVDT datchigining sezgirlik koeffitsientini hisoblash:*
 
 $
-  S = (V_"max" - V_"min") / (x_"max" - x_"min") = (2.50 - (-2.50)) / (10.0 - (-10.0)) = (5.00 "V") / (20.0 "mm") = 0.25 "V/mm" = 250 "mV/mm"
+  S = (V_"max" - V_"min") / (x_"max" - x_"min") = (2.50 - (-2.50)) / (10.0 - (-10.0)) = (5.00 "V") / (20.0 "mm") \ = 0.25 "V/mm" = 250 "mV/mm"
 $
 
 *2. Statistik oʻrtacha qiymat va oʻrtacha kvadratik chetlashish:*

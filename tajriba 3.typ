@@ -14,6 +14,21 @@
   paper: "a4",
   margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 2cm),
 )
+// ===== HOSHIYA =====
+#let info = json("fan.json")
+#let raqam = 3  // amaliyot raqami
+#set document(keywords: (info.fan,))
+#set page(header: context {
+  set text(size: 9pt, fill: luma(110))
+  grid(
+    columns: (1fr, auto, 1fr),
+    align: (left, center, right),
+    info.fan, info.semestr, [Tajriba №#raqam],
+  )
+  v(-0.5em)
+  line(length: 100%, stroke: 0.4pt + luma(170))
+})
+// ===================
 #set text(size: 12pt, lang: "uz")
 #set par(justify: true, leading: 0.65em)
 #set heading(numbering: "1.1")
@@ -88,10 +103,12 @@ bunda:
 
 Palmgren empirik modeliga koʻra yuklamasiz isrof momenti $M_0$ (N·mm) quyidagicha hisoblanadi:
 
-$ M_0 = cases(
-  10^(-7) dot f_0 dot (nu_0 n)^(2\/3) dot d_m^3 \, quad & "agar" nu_0 n >= 2000,
-  160 dot 10^(-7) dot f_0 dot d_m^3 \, quad & "agar" nu_0 n < 2000,
-) $
+$
+  M_0 = cases(
+    10^(-7) dot f_0 dot (nu_0 n)^(2\/3) dot d_m^3 \, quad & "agar" nu_0 n >= 2000,
+    160 dot 10^(-7) dot f_0 dot d_m^3 \, quad & "agar" nu_0 n < 2000,
+  )
+$
 
 bunda $f_0$ --- podshipnik turi va moylash usuliga bogʻliq koeffitsient ($1.5 dots 5$), $nu_0$ --- moyning kinematik qovushoqligi (mm#super[2]/s), $n$ --- val aylanish chastotasi (rpm), $d_m = (d + D) \/ 2$ --- podshipnikning oʻrtacha diametri (mm).
 
@@ -236,11 +253,15 @@ Dumalash podshipnigining elementlari va unga taʼsir etuvchi kuchlar @fig-bearin
       content((0.95, -2.0), text(size: 7.5pt, fill: blue)[radial yuklama $F_r$])
 
       // Aylanish (ichki halqa)
-      arc((0, 0), start: 45deg, stop: 120deg, radius: 0.95, anchor: "origin", stroke: 1.3pt + red, mark: (end: "straight"))
+      arc((0, 0), start: 45deg, stop: 120deg, radius: 0.95, anchor: "origin", stroke: 1.3pt + red, mark: (
+        end: "straight",
+      ))
       content((0.15, 0.62), text(size: 7pt, fill: red)[$omega$])
 
       // Ishqalanish momenti (tashqi halqa)
-      arc((0, 0), start: 135deg, stop: 60deg, radius: 2.45, anchor: "origin", stroke: 1.3pt + green.darken(35%), mark: (end: "straight"))
+      arc((0, 0), start: 135deg, stop: 60deg, radius: 2.45, anchor: "origin", stroke: 1.3pt + green.darken(35%), mark: (
+        end: "straight",
+      ))
       content((0, 2.8), text(size: 7.5pt, fill: green.darken(35%))[ishqalanish $M_f$])
 
       // Oʻlchamlar
@@ -423,7 +444,9 @@ ISO GUM (_Guide to the Expression of Uncertainty in Measurement_) boʻyicha $n =
 
 A turdagi standart noaniqlik:
 
-$ u_A (macron(M)_f) = sqrt((sum (M_i - macron(M))^2) / (n (n - 1))) = sqrt(0.175 / (6 times 5)) approx 0.076 "N" dot "mm" $
+$
+  u_A (macron(M)_f) = sqrt((sum (M_i - macron(M))^2) / (n (n - 1))) = sqrt(0.175 / (6 times 5)) approx 0.076 "N" dot "mm"
+$
 
 B turdagi (datchik pasporti boʻyicha) noaniqlik:
 

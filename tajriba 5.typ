@@ -12,6 +12,21 @@
   paper: "a4",
   margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 2cm),
 )
+// ===== HOSHIYA =====
+#let info = json("fan.json")
+#let raqam = 5  // amaliyot raqami
+#set document(keywords: (info.fan,))
+#set page(header: context {
+  set text(size: 9pt, fill: luma(110))
+  grid(
+    columns: (1fr, auto, 1fr),
+    align: (left, center, right),
+    info.fan, info.semestr, [Tajriba №#raqam],
+  )
+  v(-0.5em)
+  line(length: 100%, stroke: 0.4pt + luma(170))
+})
+// ===================
 #set text(size: 12pt, lang: "uz")
 #set par(justify: true, leading: 0.65em)
 #set heading(numbering: "1.1")
@@ -395,6 +410,7 @@ servoyuritmaning tezlik va moment xarakteristikalarini oʻlchash stendining funk
     content((5.2, 0.7), text(size: 8pt, fill: green.darken(30%))[$eta = (T omega) \/ (U I)$], anchor: "west")
   }),
   caption: [$U = 24 "V"$ da mexanik quvvat va FIK ning yuklama momentiga bogʻliqligi],
+  placement: auto,
 ) <fig-power>
 
 == 3-topshiriq: elektromexanik vaqt doimiysini aniqlash

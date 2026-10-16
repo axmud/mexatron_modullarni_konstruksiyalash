@@ -14,6 +14,21 @@
   paper: "a4",
   margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 2cm),
 )
+// ===== HOSHIYA =====
+#let info = json("fan.json")
+#let raqam = 2  // amaliyot raqami
+#set document(keywords: (info.fan,))
+#set page(header: context {
+  set text(size: 9pt, fill: luma(110))
+  grid(
+    columns: (1fr, auto, 1fr),
+    align: (left, center, right),
+    info.fan, info.semestr, [Tajriba №#raqam],
+  )
+  v(-0.5em)
+  line(length: 100%, stroke: 0.4pt + luma(170))
+})
+// ===================
 #set text(size: 12pt, lang: "uz")
 #set par(justify: true, leading: 0.65em)
 #set heading(numbering: "1.1")
@@ -341,6 +356,7 @@ $ V_"out" = V_"ex" dot G_f / 4 (epsilon_1 - epsilon_2 + epsilon_3 - epsilon_4) $
     })
   },
   caption: [Tajribaviy egilish ($F$--$delta$) va burilish ($T$--$theta$) grafiklari hamda gisterezis hodisasi],
+  placement: auto,
 ) <fig-curves>
 
 = Laboratoriya topshiriqlari va tajriba tartibi
