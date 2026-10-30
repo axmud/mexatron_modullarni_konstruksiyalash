@@ -21,7 +21,7 @@
 #set page(header: context {
   set text(size: 9pt, fill: luma(110))
   grid(
-    columns: (1fr, auto, 1fr),
+    columns: (2fr, auto, 1fr),
     align: (left, center, right),
     info.fan, info.semestr, [Tajriba №#raqam],
   )
@@ -29,7 +29,7 @@
   line(length: 100%, stroke: 0.4pt + luma(170))
 })
 // ===================
-#set text(size: 12pt, lang: "uz")
+#set text(size: 12pt, lang: "uz", font: info.font)
 #set par(justify: true, leading: 0.65em)
 #set heading(numbering: "1.1")
 #set math.equation(numbering: "(1)", supplement: none)

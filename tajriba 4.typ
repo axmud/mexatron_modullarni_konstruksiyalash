@@ -19,7 +19,7 @@
 #set page(header: context {
   set text(size: 9pt, fill: luma(110))
   grid(
-    columns: (1fr, auto, 1fr),
+    columns: (2fr, auto, 1fr),
     align: (left, center, right),
     info.fan, info.semestr, [Tajriba №#raqam],
   )
@@ -27,7 +27,7 @@
   line(length: 100%, stroke: 0.4pt + luma(170))
 })
 // ===================
-#set text(size: 12pt, lang: "uz")
+#set text(size: 12pt, lang: "uz", font: info.font)
 #set par(justify: true, leading: 0.65em)
 #set heading(numbering: "1.1")
 #set math.equation(numbering: "(1)", supplement: none)
@@ -145,10 +145,10 @@ Tajriba mashgʻulotini oʻtkazish uchun moʻljallangan yuqori aniqlikdagi optik-
     line((0, 0), (13.6, 0), stroke: 2.5pt + dslate)
 
     blk((0, 0), 2.2, 1.2, green.lighten(85%))[*Servodvigatel* \ (BLDC yuritma)]
-    blk((3.4, 0), 2.2, 1.1, blue.lighten(90%), stroke: 1pt + pblue)[*Kirish enkoderi* \ $N_1 = 10 thin 000$ PPR]
+    blk((3.4, 0), 2.4, 1.1, blue.lighten(90%), stroke: 1pt + pblue)[*Kirish enkoderi* \ $N_1 = 10 thin 000$ PPR]
     blk((6.8, 0), 2.3, 1.2, orange.lighten(80%))[*Tadqiqot tishli* \ *uzatmasi* ($z_1 \/ z_2$)]
-    blk((10.2, 0), 2.3, 1.1, blue.lighten(90%), stroke: 1pt + pblue)[*Chiqish enkoderi* \ $N_2 = 360 thin 000$ PPR]
-    blk((13.6, 0), 2.2, 1.2, red.lighten(85%))[*Elektromagnit* \ *tormoz* (yuklama)]
+    blk((10.2, 0), 2.45, 1.1, blue.lighten(90%), stroke: 1pt + pblue)[*Chiqish enkoderi* \ $N_2 = 360 thin 000$ PPR]
+    blk((13.6, 0), 2.4, 1.2, red.lighten(85%))[*Elektromagnit* \ *tormoz* (yuklama)]
 
     content((1.7, 0.15), text(size: 7.5pt)[$n_1, T_"in"$], anchor: "south")
     content((11.9, 0.15), text(size: 7.5pt)[$n_2, T_"out"$], anchor: "south")

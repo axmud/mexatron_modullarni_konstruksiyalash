@@ -19,7 +19,7 @@
 #set page(header: context {
   set text(size: 9pt, fill: luma(110))
   grid(
-    columns: (1fr, auto, 1fr),
+    columns: (2fr, auto, 1fr),
     align: (left, center, right),
     info.fan, info.semestr, [Tajriba №#raqam],
   )
@@ -27,7 +27,7 @@
   line(length: 100%, stroke: 0.4pt + luma(170))
 })
 // ===================
-#set text(size: 12pt, lang: "uz")
+#set text(size: 12pt, lang: "uz", font: info.font)
 #set par(justify: true, leading: 0.65em)
 #set heading(numbering: "1.1")
 #set math.equation(numbering: "(1)", supplement: none)
@@ -253,7 +253,7 @@ servoyuritmaning tezlik va moment xarakteristikalarini oʻlchash stendining funk
 
     blk((1.6, 0), 2.0, 1.1, blue.lighten(90%), stroke: 1pt + pblue)[*Enkoder* \ $N = 2000$ PPR]
     blk((3.8, 0), 2.2, 1.2, green.lighten(80%))[*DC servo-* \ *dvigatel*]
-    blk((7.0, 0), 2.4, 1.1, orange.lighten(80%))[*Moment datchigi* \ $plus.minus 2 "N" dot "m"$]
+    blk((7.0, 0), 2.5, 1.1, orange.lighten(80%))[*Moment datchigi* \ $plus.minus 2 "N" dot "m"$]
     blk((10.4, 0), 2.4, 1.2, red.lighten(85%))[*Kukunli tormoz* \ (yuklama $T_L$)]
 
     content((5.4, 0.15), text(size: 7.5pt)[$omega, T$], anchor: "south")
